@@ -19,13 +19,11 @@ def extract_payload(path):
     else:
         b64 = m.group(2)
 
-    # salt
     m2 = re.search(r'_salt_hex\s*=\s*"([0-9a-fA-F]+)"', text)
     if not m2:
         m2 = re.search(r"_salt_hex\s*=\s*([\'\"])" + r"([0-9a-fA-F]+)" + r"\1", text)
     salt = bytes.fromhex(m2.group(1) if m2 and m2.lastindex==1 else (m2.group(2) if m2 else '')) if m2 else None
 
-    # iterations
     m3 = re.search(r"_iters\s*=\s*(\d+)", text)
     iters = int(m3.group(1)) if m3 else None
 

@@ -26,7 +26,7 @@ def main():
             pass
 
     # Obfuscate
-    rc = run(['python3', 'obfuscator.py', infile, obf, '--key', pwd])
+    rc = run(['python3', 'obfuscator.py', infile, obf, '--key', pwd], env=os.environ)
     if rc != 0:
         print('Obfuscation failed', file=sys.stderr)
         sys.exit(1)
