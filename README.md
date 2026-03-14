@@ -5,6 +5,7 @@ This is a tiny toolset to hide Python code and get it back later. Plain language
 Files you have
 - python/: Python tools and examples (`sysinfo.py`, `obfuscator.py`, `deobfuscator.py`, `test_pipeline.py`).
 - go/: Go obfuscator and deobfuscator wrappers (`obfuscator.go`, `deobfuscator.go`).
+- examples/: example source files you can pick from when running the interactive tool.
 
 How to use (3 easy steps)
 
@@ -13,12 +14,16 @@ How to use (3 easy steps)
 Run the Python obfuscator from the `python/` folder and type a password when asked (or add `--key`):
 
 ```bash
+# simplified: use the interactive CLI
+python3 obfuscate_cli.py
+
+# or direct:
 python3 python/obfuscator.py python/sysinfo.py python/obf_sysinfo.py --key mypassword
 # or interactive:
 python3 python/obfuscator.py python/sysinfo.py python/obf_sysinfo.py
 ```
 
-This writes `python/obf_sysinfo.py`. The password is NOT stored inside the file.
+This writes `dist/python/obf_sysinfo.py`. The password is NOT stored inside the file.
 
 2) Run the hidden file
 
